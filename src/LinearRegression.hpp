@@ -32,6 +32,11 @@ public:
         bias = intercept;
     }
 
+    double predict(double x) const {
+        if (weights.empty()) throw std::logic_error("Primero entrene el modelo");
+        return weights.front() * x + bias;
+    }
+
     const std::vector<double>& getWeights() const { return weights; }
     double getBias() const { return bias; }
 
@@ -39,3 +44,4 @@ private:
     std::vector<double> weights;
     double bias = 0;
 };
+
