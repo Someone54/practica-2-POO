@@ -104,14 +104,12 @@ int main(int argc, char* argv[]) {
         // Mostramos cuantos datos se usaron para entrenar.
         std::cout << "Datos de entrenamiento: "
                   << xTrain.size()
-                  << '
-';
+                  << std::endl;
 
         // Mostramos cuantos datos se reservaron para probar.
         std::cout << "Datos de prueba: "
                   << xTest.size()
-                  << '
-';
+                  << std::endl;
 
         // Obtenemos los pesos que aprendio el modelo.
         const Vector& weights =
@@ -131,22 +129,20 @@ int main(int argc, char* argv[]) {
                       << i + 1
                       << ": "
                       << weights[i]
-                      << '
-';
+                      << std::endl;
         }
 
         // Mostramos el bias que aprendio el modelo.
         std::cout << "Bias: "
                   << model.getBias()
-                  << '
-';
+                  << std::endl;
 
         /*
          * Comparamos las notas reales con las predicciones. Esto permite ver que tan cerca quedo cada resultado.
          */
-        std::cout << "
-Nota real,Prediccion
-";
+        std::cout << std::endl;
+        std::cout << "Nota real,Prediccion"
+                  << std::endl;
 
         for (std::size_t i = 0;
              i < xTest.size();
@@ -154,18 +150,16 @@ Nota real,Prediccion
             std::cout << yTest[i]
                       << ','
                       << model.predict(xTest[i])
-                      << '
-';
+                      << std::endl;
         }
 
         /*
          * Calculamos R cuadrado. Un resultado cercano a 1 indica buenas predicciones.
          */
-        std::cout << "
-R cuadrado: "
+        std::cout << std::endl;
+        std::cout << "R cuadrado: "
                   << model.score(xTest, yTest)
-                  << '
-';
+                  << std::endl;
 
         return 0;
     } catch (const std::exception& error) {
@@ -174,8 +168,7 @@ R cuadrado: "
          */
         std::cerr << "Error: "
                   << error.what()
-                  << '
-';
+                  << std::endl;
 
         return 1;
     }
