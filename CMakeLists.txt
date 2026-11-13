@@ -27,6 +27,16 @@ add_executable(
     src/memoryAnalysis.cpp
 )
 
+add_executable(
+    regressionTest
+    tests/regression.cpp
+)
+
+target_compile_features(
+    regressionTest
+    PRIVATE cxx_std_17
+)
+
 target_compile_features(
     memoryAnalysis
     PRIVATE cxx_std_17
